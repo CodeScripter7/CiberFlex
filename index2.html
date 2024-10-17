@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="estilos.css" />
+    <title>Formulario</title>
+</head>
+<body>
+    <nav>
+        <img src="https://reqlut2.s3.sa-east-1.amazonaws.com/reqlut-images/cibertec/logo.png?v=63.9" alt="logo-cibertec" />
+    </nav>
+
+    <div class="container">
+        <h3>Información de Contacto</h3>
+        <p>Por favor, complete el siguiente formulario para crear un nuevo ticket.</p>
+
+        <form id="ticketForm" action="https://formsubmit.co/andrearebatta0623@gmail.com" method="POST">
+            <div class="estilo-input ancho">
+                <h6>Correo electrónico activo</h6>
+                <input type="email" name="email" required />
+                <label></label>
+            </div>
+
+            <div class="estilo-input ancho">
+                <h6>Nombre completo</h6>
+                <input type="text" name="name" required pattern="[A-Za-z\s]+" />
+                <label></label>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group1">
+                    <h6>DNI</h6>
+                    <input type="text" name="dni" required minlength="8" maxlength="8" pattern="\d{8}" />
+                </div>
+
+                <div class="form-group2">
+                    <h6>Teléfono Móvil</h6>
+                    <input type="phone" name="telefono" required minlength="9" maxlength="9" pattern="\d{9}" />
+                </div>
+
+                <div class="form-group3">
+                    <h6>Código de Alumno</h6>
+                    <input type="codigo" name="codigo" required minlength="9" maxlength="9" pattern="\d{9}" />
+                </div>
+            </div>
+
+            <div class="estilo-input">
+                <h6>Seleccionar Sede</h6>
+                <select name="sede" id="sede" required>
+                    <option value="" disabled selected>Seleccionar Sede</option>
+                    <option value="arequipa">Arequipa</option>
+                    <option value="breña">Breña</option>
+                    <option value="callao">Callao</option>
+                    <option value="independencia">Independencia</option>
+                    <option value="lima-centro">Lima Centro</option>
+                    <option value="sj-lurigancho">San Juan de Lurigancho</option>
+                    <option value="trujillo">Trujillo</option>
+                    <option value="virtual">Virtual</option>
+                </select>
+            </div>
+
+            <div class="estilo-input ancho">
+                <h6>Detalles del ticket</h6>
+                <textarea required name="message"></textarea>
+                <label></label>
+            </div>
+
+            <input type="hidden" name="_captcha" value="false" />
+        </form>
+
+        <div class="botones">
+            <a href="index.html"><button type="button" class="button">Regresar</button></a>
+            <button type="submit" class="button" id="submitBtn">Enviar</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("submitBtn").addEventListener("click", function (event) {
+            event.preventDefault(); // Previene el comportamiento por defecto
+
+            let form = document.getElementById("ticketForm");
+            let email = form.querySelector('input[name="email"]');
+            let name = form.querySelector('input[name="name"]');
+            let dni = form.querySelector('input[name="dni"]');
+            let phone = form.querySelector('input[name="telefono"]');
+            let codigo = form.querySelector('input[name="codigo"]');
+
+            let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            let phonePattern = /^[0-9]{9}$/;
+
+            if (!email.value.match(emailPattern)) {
+                alert("Por favor, ingrese un correo electrónico válido.");
+                return;
+            }
+
+            if (dni.value.length !== 8 || isNaN(dni.value)) {
+                alert("El DNI debe tener 8 dígitos numéricos.");
+                return;
+            }
+
+            if (!phone.value.match(phonePattern)) {
+                alert("Por favor, ingrese un número de teléfono válido (9 dígitos).");
+                return;
+            }
+
+            if (codigo.value.length !== 9 || isNaN(codigo.value)) {
+                alert("El código de alumno debe tener 9 dígitos.");
+                return;
+            }
+
+            // Enviar el formulario usando fetch
+            fetch("https://formsubmit.co/andrearebatta0623@gmail.com", {
+                method: "POST",
+                body: new FormData(form),
+            })
+                .then((response) => {
+                    if (response.ok) {
+                        alert("Formulario enviado correctamente.");
+                        window.location.href = "index3.html"; // Redirigir a index3.html
+                    } else {
+                        alert("Error al enviar el formulario.");
+                    }
+                })
+                .catch((error) => {
+                    console.error("Error:", error);
+                });
+        });
+    </script>
+</body>
+</html>

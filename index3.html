@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos2.css">
+    <title>Ticket Creado</title>
+</head>
+
+<body>
+    <div id="loadingModal" class="modal">
+        <div class="modal-content">
+            <div class="loader"></div>
+            <h2>Cargando</h2>
+            <p id="carga">Por favor, espere un momento...</p>
+        </div>
+    </div>
+
+    <div id="content" class="container" style="display: none;">
+        <header>
+            <img src="https://reqlut2.s3.sa-east-1.amazonaws.com/reqlut-images/cibertec/logo.png?v=63.9" alt="cibertec">
+            <!-- Muestra un logo de Cibertec -->
+        </header>
+        <div class="success-icon">✔️</div>
+        <h1>Solicitud de ticket de ayuda creada</h1>
+        <p>Su ticket ha sido registrado exitosamente. Recibirá información sobre el estado o la respuesta a través de su
+            correo electrónico. Le recomendamos asegurarse de que su aplicación de correo no bloquee los mensajes
+            provenientes de la plataforma ni los clasifique como correo no deseado (spam).
+        </p>
+        <p>Estamos comprometidos en brindarte una atención rápida y eficiente. Por eso, nuestro tiempo de respuesta está
+            fijado en un máximo de 48 horas para garantizar que recibas la mejor asistencia posible.
+        <p>
+            <br>
+        <p id="equipo">El equipo de Contacto Cibertec</p>
+        <a href="index.html" class="btn">Volver a la Página Principal</a>
+    </div>
+
+    <script>
+        window.onload = function () {
+            setTimeout(function () {
+                document.getElementById('loadingModal').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+            }, 3000); //carga de 3 segundos
+        };
+    </script>
+</body>
+
+</html>
