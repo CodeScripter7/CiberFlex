@@ -1,79 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="estilos.css" />
     <title>Formulario</title>
-</head>
-<body>
+  </head>
+  <body>
     <nav>
-        <img src="https://reqlut2.s3.sa-east-1.amazonaws.com/reqlut-images/cibertec/logo.png?v=63.9" alt="logo-cibertec" />
+      <img
+        src="https://reqlut2.s3.sa-east-1.amazonaws.com/reqlut-images/cibertec/logo.png?v=63.9"
+        alt="logo-cibertec"
+      />
     </nav>
 
     <div class="form-container">
-        <h3>Información de Contacto</h3>
-        <p>Por favor, complete el siguiente formulario para crear un nuevo ticket.</p>
+      <h3>Información de Contacto</h3>
+      <p>
+        Por favor, complete el siguiente formulario para crear un nuevo ticket.
+      </p>
 
-        <form id="ticketForm" action="https://formsubmit.co/andrearebatta0623@gmail.com" method="POST">
-            <div class="estilo-input ancho">
-                <h6>Correo electrónico activo</h6>
-                <input type="email" name="email" required />
-            </div>
+      <form
+        id="ticketForm"
+        action="https://formsubmit.co/andrearebatta0623@gmail.com"
+        method="POST"
+      >
+        <div class="estilo-input ancho">
+          <h6>Correo electrónico activo</h6>
+          <input type="email" name="email" required />
+        </div>
 
-            <div class="estilo-input ancho">
-                <h6>Nombre completo</h6>
-                <input type="text" name="name" required pattern="[A-Za-z\s]+" />
-            </div>
+        <div class="estilo-input ancho">
+          <h6>Nombre completo</h6>
+          <input type="text" name="name" required pattern="[A-Za-z\s]+" />
+        </div>
 
-            <div class="form-row">
-                <div class="form-group">
-                    <h6>DNI</h6>
-                    <input type="text" name="dni" required minlength="8" maxlength="8" pattern="\d{8}" />
-                </div>
-                <div class="form-group">
-                    <h6>Teléfono Móvil</h6>
-                    <input type="phone" name="telefono" required minlength="9" maxlength="9" pattern="\d{9}" />
-                </div>
-                <div class="form-group">
-                    <h6>Código de Alumno</h6>
-                    <input type="codigo" name="codigo" required minlength="9" maxlength="9" pattern="\d{9}" />
-                </div>
-            </div>
+        <div class="form-row">
+          <div class="form-group">
+            <h6>DNI</h6>
+            <input
+              type="text"
+              name="dni"
+              required
+              minlength="8"
+              maxlength="8"
+              pattern="\d{8}"
+            />
+          </div>
+          <div class="form-group">
+            <h6>Teléfono Móvil</h6>
+            <input
+              type="phone"
+              name="telefono"
+              required
+              minlength="9"
+              maxlength="9"
+              pattern="\d{9}"
+            />
+          </div>
+          <div class="form-group">
+            <h6>Código de Alumno</h6>
+            <input
+              type="codigo"
+              name="codigo"
+              required
+              minlength="9"
+              maxlength="9"
+              pattern="\d{9}"
+            />
+          </div>
+        </div>
 
-            <div class="estilo-input ancho">
-                <h6>Seleccionar Sede</h6>
-                <select name="sede" id="sede" required>
-                    <option value="" disabled selected>Seleccionar Sede</option>
-                    <option value="arequipa">Arequipa</option>
-                    <option value="breña">Breña</option>
-                    <option value="callao">Callao</option>
-                    <option value="independencia">Independencia</option>
-                    <option value="lima-centro">Lima Centro</option>
-                    <option value="sj-lurigancho">San Juan de Lurigancho</option>
-                    <option value="trujillo">Trujillo</option>
-                    <option value="virtual">Virtual</option>
-                </select>
-            </div>
+        <div class="estilo-input ancho">
+          <h6>Seleccionar Sede</h6>
+          <select name="sede" id="sede" required>
+            <option value="" disabled selected>Seleccionar Sede</option>
+            <option value="arequipa">Arequipa</option>
+            <option value="breña">Breña</option>
+            <option value="callao">Callao</option>
+            <option value="independencia">Independencia</option>
+            <option value="lima-centro">Lima Centro</option>
+            <option value="sj-lurigancho">San Juan de Lurigancho</option>
+            <option value="trujillo">Trujillo</option>
+            <option value="virtual">Virtual</option>
+          </select>
+        </div>
 
-            <div class="estilo-input ancho">
-                <h6>Detalles del ticket</h6>
-                <textarea required name="message"></textarea>
-            </div>
+        <div class="estilo-input ancho">
+          <h6>Detalles del ticket</h6>
+          <textarea required name="message"></textarea>
+        </div>
 
-            <div class="botones">
-                <button type="button" class="button">Regresar</button>
-                <button type="submit" class="button" id="submitBtn">Enviar</button>
-            </div>
-        </form>
+        <div class="botones">
+          <button type="button" class="button">Regresar</button>
+          <button type="submit" class="button" id="submitBtn">Enviar</button>
+        </div>
+      </form>
     </div>
 
     <script>
-        document.getElementById('ticketForm').addEventListener('submit', function (e) {
-            e.preventDefault(); 
-            alert('Formulario enviado correctamente. Redirigiendo a la página principal...');
-            window.location.href = 'index3.html'; 
+      document
+        .getElementById("ticketForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          window.location.href = "index3.html";
         });
     </script>
-</body>
+  </body>
 </html>

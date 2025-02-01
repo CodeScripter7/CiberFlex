@@ -96,3 +96,37 @@ header img{
 #equipo{
     text-align: right;
 }
+@media (max-width: 768px) {
+    .container {
+        margin: 50px auto;
+        padding: 15px;
+        max-width: 90%; /* Asegura que el contenedor se ajuste a pantallas más pequeñas */
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .btn {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    .modal-content {
+        width: 80%;
+    }
+
+    header img {
+        width: 35%; 
+    }
+
+    .loader {
+        width: 40px;
+        height: 40px;
+        border-width: 6px; 
+    }
+}
